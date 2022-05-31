@@ -15,5 +15,19 @@ pipeline {
                 DOTNET_CLI_HOME='/tmp/dotnet_cli_home'
             }
         }
+        stage('Build & test typescript') {
+            agent {
+                docker { image 'mcr.microsoft.com/dotnet/sdk:6.0'}
+            }
+            steps {
+                dir('DotnetTemplate.Web'){
+                    sh "npm install"
+                    sh "npm run build"
+                    sh "npm t"
+                    sh "npm run lint"
+                }
+            }
+        }
     }
+
 }
