@@ -12,14 +12,14 @@ jobs:
         dotnet build
         dotnet test
     - name: Install dependencies and build DotnetTemplate.Web
-        run: |
-          cd DotnetTemplate.Web
-          npm install
-          npm run build
+      run: |
+        cd DotnetTemplate.Web
+        npm install
+        npm run build
     - name: Run Typescript Tests
-        run: npm t
+      run: npm t
     - name: Run lint 
-        run: npm run lint
+      run: npm run lint
 
 
     
