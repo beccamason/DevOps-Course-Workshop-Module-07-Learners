@@ -17,7 +17,7 @@ pipeline {
         }
         stage('Build & test typescript') {
             agent {
-                docker { image 'mcr.microsoft.com/dotnet/sdk:6.0'}
+                docker { image 'node:17-bullseye'}
             }
             steps {
                 dir('DotnetTemplate.Web'){
