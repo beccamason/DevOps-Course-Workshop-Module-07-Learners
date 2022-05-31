@@ -1,15 +1,18 @@
 pipeline {
-    agent any
+    agent none
 
     stages {
-        stage('Build') {
+        stage('Build & test dotnet') {
+            agent {
+                docker { image 'mcr.microsoft.com/dotnet/sdk:6.0'}
+            }            
             steps {
                 sh "dotnet build"
+                sh "dotnet test"
+                
             }
-        }
-        stage('Test') {
-            steps {
-                sh "dotnet build"
+            environment {
+                DOTNET_CLI_HOME='/tmp/dotnet_cli_home'
             }
         }
     }
