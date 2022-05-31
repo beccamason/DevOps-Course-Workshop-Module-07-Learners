@@ -24,11 +24,11 @@ jobs:
       run: |
         cd DotnetTemplate.Web
         npm run lint
-   - name: Send GitHub Action trigger data to Slack workflow
-     id: slack
-     uses: slackapi/slack-github-action@v1.19.0
-     env:
-      SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }} 
+    - name: Send GitHub Action trigger data to Slack workflow
+      id: slack
+      uses: slackapi/slack-github-action@v1.19.0
+      env:
+        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }} 
 
 
     
