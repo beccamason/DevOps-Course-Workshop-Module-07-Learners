@@ -17,9 +17,13 @@ jobs:
         npm install
         npm run build
     - name: Run Typescript Tests
-      run: npm t
+      run: |
+        cd DotnetTemplate.Web
+        npm t
     - name: Run lint 
-      run: npm run lint
+      run: |
+        cd DotnetTemplate.Web
+        npm run lint
 
 
     
