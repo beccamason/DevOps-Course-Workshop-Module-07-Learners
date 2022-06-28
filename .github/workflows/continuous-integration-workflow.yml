@@ -24,6 +24,14 @@ jobs:
       run: |
         cd DotnetTemplate.Web
         npm run lint
-
+  deploy: 
+    name: Deploy to DockerHub 
+    runs-on: ubuntu-latest
+    needs: build
+    steps: 
+    - name: Build docker image 
+      run: docker build -t beccamason28/dotnettemplate:imagelefrancis .
+    - name: Push to docker hub
+      run: docker push beccamason28/dotnettemplate:imagelefrancis
 
     
