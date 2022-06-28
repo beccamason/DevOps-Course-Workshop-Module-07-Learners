@@ -33,5 +33,14 @@ jobs:
       run: docker build -t beccamason28/dotnettemplate:imagelefrancis .
     - name: Push to docker hub
       run: docker push beccamason28/dotnettemplate:imagelefrancis
-
+  heroku:
+    name: Push to heroku?
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
+        with:
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: "applemason" #Must be unique in Heroku
+          heroku_email: "francis.jordan@iris.co.uk"
     
