@@ -30,6 +30,8 @@ jobs:
     needs: build
     steps: 
     - uses: actions/checkout@v2 # Adds a step to checkout the repository code
+    - name: Docker Login
+      run: docker login -u beccamason28 -p ${{secrets.BECCA_DOCKER_PASSWORD}}
     - name: Build docker image 
       run: docker build -t beccamason28/dotnettemplate:imagelefrancis .
     - name: Push to docker hub
